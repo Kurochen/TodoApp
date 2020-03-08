@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 export const data = [
+=======
+export let data = [
+>>>>>>> 7aa4572fb8f8cbc7a445b823d2eda7a321793f35
     {
         id: 0,
         title: "Kurochen title",
