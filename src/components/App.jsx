@@ -10,6 +10,7 @@ import TitleContainer from "./Text/TitleContainer";
 //import ButtonDelete from "./Buttons/ButtonDelete";
 //import ButtonSave from "./Buttons/ButtonSave";
 import { makeStyles } from "@material-ui/core/styles";
+import TableLayout from "./Table/TableLayout";
 
 const useStyles = makeStyles({
   root: {
@@ -27,6 +28,7 @@ export default function App() {
       <ButtonGroup />
       <TitleContainer />
       <DescriptionContainer />
+      <TableLayout />
 
       <div className={classes.root}>
         {/* <Navbar />
