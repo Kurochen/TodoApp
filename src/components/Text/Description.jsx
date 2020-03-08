@@ -5,7 +5,8 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
   root: {
-    // fontSize: "1.8em"
+    //fontSize: "1.8em",
+    //textAlign: "right",
   }
 });
 
@@ -38,6 +39,7 @@ export default function TextTask({
       className={classes.root}
       onChange={onChange}
       value={text}
+      multiline={true}
     />
   );
 }

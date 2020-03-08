@@ -5,7 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
   root: {
-    fontSize: "1.2em"
+    fontSize: "1.3em"
   }
 });
 
@@ -40,6 +40,7 @@ export default function TitleTask({
       className={classes.root}
       onChange={onChange}
       value={text}
+      multiline={true}
     />
   );
 }
