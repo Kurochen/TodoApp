@@ -1,14 +1,14 @@
 import React from "react";
-import SaveContainer from "./SaveContainer";
-import CancelContainer from "./CancelContainer";
-import DeleteContainer from "./DeleteContainer";
+import Save from "./Save";
+import Cancel from "./Cancel";
+import Delete from "./Delete";
 
 export default function ButtonGroup() {
   return (
     <>
-      <SaveContainer />
-      <CancelContainer />
-      <DeleteContainer />
+      <Save />
+      <Cancel />
+      <Delete />
     </>
   );
 }

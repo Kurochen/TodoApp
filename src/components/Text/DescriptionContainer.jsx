@@ -10,14 +10,15 @@ import { buttonsActiveOnAC, descriptionSaveAC } from "../../redux/todos";
 //   };
 // };
 
-// let mapDispatchToProps = dispatch => {
-//   return {
-//     buttonsActiveOn: todoId => dispatch(buttonsActiveOnAC(todoId)),
-//     descriptionSave: description => dispatch(descriptionSaveAC(description))
-//   };
-// };
+let mapDispatchToProps = dispatch => {
+  return {
+    buttonsActiveOn: id => dispatch(buttonsActiveOnAC(id)),
+    descriptionSave: (text, id) => dispatch(descriptionSaveAC(text, id))
+  };
+};
 
 export default connect(
+  null,
   //mapStateToProps,
-  //mapDispatchToProps
+  mapDispatchToProps
 )(Description);

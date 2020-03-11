@@ -2,19 +2,20 @@ import Save from "./Save";
 import { connect } from "react-redux";
 import { buttonSaveOffAC } from "../../redux/todos";
 
-let mapStateToProps = state => {
-  return {
-    disable: state.todos.buttonSaveDisable
-  };
-};
+// let mapStateToProps = state => {
+//   return {
+//     disable: state.todos.buttonSaveDisable
+//   };
+// };
 
 let mapDispatchToProps = dispatch => {
   return {
-    saveOff: pusto => dispatch(buttonSaveOffAC(pusto))
+    saveOff: id => dispatch(buttonSaveOffAC(id))
   };
 };
 
 export default connect(
-  mapStateToProps,
+  null,
+  // mapStateToProps,
   mapDispatchToProps
 )(Save);

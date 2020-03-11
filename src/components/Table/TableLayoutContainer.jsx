@@ -1,5 +1,10 @@
 import TableLayout from "./TableLayout";
 import { connect } from "react-redux";
+import {
+    buttonsActiveOnAC,
+    titleSaveAC,
+    descriptionSaveAC
+} from "../../redux/todos";
 
 let mapStateToProps = state => {
     return {
@@ -7,6 +12,15 @@ let mapStateToProps = state => {
     };
 };
 
+// let mapDispatchToProps = dispatch => {
+//     return {
+//         descriptionSave: description => dispatch(descriptionSaveAC(description)),
+//         titleSave: title => dispatch(titleSaveAC(title)),
+//         buttonsActiveOn: todoId => dispatch(buttonsActiveOnAC(todoId))
+//     }
+// }
+
 export default connect(
-    mapStateToProps
+    mapStateToProps,
+    // mapDispatchToProps
 )(TableLayout);

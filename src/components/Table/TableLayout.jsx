@@ -8,30 +8,28 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Container from '@material-ui/core/Container';
-import Title from '../Text/Title';
+import TitleContainer from '../Text/TitleContainer';
 import Description from '../Text/Description'
 import ButtonGroup from '../Buttons/ButtonGroup';
 import Box from '@material-ui/core/Box';
+import DescriptionContainer from '../Text/DescriptionContainer';
+import ButtonGroupContainer from '../Buttons/ButtonGroupContainer';
 
 const useStyles = makeStyles({
     table: {
         minWidth: 650,
     },
     description: {
-        //backgroundColor: 'blue',
         '&& textarea': {
             textAlign: "right"
         },
     }
 });
 
-
 const TableLayout = (props) => {
     const classes = useStyles();
 
-    console.log('TableLayout', props.state);
-    let arr = [];
-    arr = props.state;
+    console.log('TableLayout', props);
 
     return (
         <Container maxWidth="md">
@@ -45,19 +43,31 @@ const TableLayout = (props) => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {/* {Object.keys(props.state).map(row => ( */}
                         {props.state.map(row => (
                             <TableRow key={row.id}>
                                 <TableCell component="th" scope="row">
-                                    <Title data={row.title} />
+                                    <TitleContainer
+                                        buttonCancelDidClick={row.buttonCancelDidClick}
+                                        buttonSaveDidClick={row.buttonSaveDidClick}
+                                        title={row.title}
+                                        id={row.id}
+                                    />
                                 </TableCell>
                                 <TableCell align="right">
                                     <Box className={classes.description}>
-                                        <Description data={row.description} />
+                                        <DescriptionContainer
+                                            buttonCancelDidClick={row.buttonCancelDidClick}
+                                            buttonSaveDidClick={row.buttonSaveDidClick}
+                                            description={row.description}
+                                            id={row.id} />
                                     </Box>
                                 </TableCell>
                                 <TableCell align="right">
-                                    <ButtonGroup data={row} />
+                                    <ButtonGroupContainer
+                                        buttonCancelDisable={row.buttonCancelDisable}
+                                        buttonSaveDisable={row.buttonSaveDisable}
+                                        id={row.id}
+                                    />
                                 </TableCell>
                             </TableRow>
                         ))}

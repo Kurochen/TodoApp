@@ -16,40 +16,57 @@ const TITLE_SAVE = "TITLE_SAVE";
 //   buttonSaveDidClick: 1
 // };
 
+
+
 //console.log('Data', data)
 
 const todos = (state = data, action) => {
   switch (action.type) {
     case "BUTTONS_ACTIVE_ON":
-      return {
-        ...state,
-        buttonCancelDisable: false,
-        buttonSaveDisable: false
-      };
+      return state.map(todo =>
+        todo.id === action.id ?
+          {
+            ...todo,
+            buttonCancelDisable: false,
+            buttonSaveDisable: false
+          }
+          : todo);
     case "BUTTON_CANCEL_OFF":
-      return {
-        ...state,
-        buttonCancelDisable: true,
-        buttonSaveDisable: true,
-        buttonCancelDidClick: !state.buttonCancelDidClick
-      };
+      return state.map(todo =>
+        todo.id === action.id ?
+          {
+            ...todo,
+            buttonCancelDisable: true,
+            buttonSaveDisable: true,
+            buttonCancelDidClick: !todo.buttonCancelDidClick
+          }
+          : todo);
     case "BUTTON_SAVE_OFF":
-      return {
-        ...state,
-        buttonCancelDisable: true,
-        buttonSaveDisable: true,
-        buttonSaveDidClick: !state.buttonSaveDidClick
-      };
+      return state.map(todo =>
+        todo.id === action.id ?
+          {
+            ...todo,
+            buttonCancelDisable: true,
+            buttonSaveDisable: true,
+            buttonSaveDidClick: !todo.buttonSaveDidClick
+          }
+          : todo);
     case "DESCRIPTION_SAVE":
-      return {
-        ...state,
-        description: action.text
-      };
+      return state.map(todo =>
+        todo.id === action.id ?
+          {
+            ...todo,
+            description: action.text
+          }
+          : todo);
     case "TITLE_SAVE":
-      return {
-        ...state,
-        title: action.text
-      };
+      return state.map(todo =>
+        todo.id === action.id ?
+          {
+            ...todo,
+            title: action.text
+          }
+          : todo);
     case "TOGGLE_TODO":
       return state.map(todo =>
         todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
@@ -59,25 +76,27 @@ const todos = (state = data, action) => {
   }
 };
 
-export const descriptionSaveAC = text => ({
+export const descriptionSaveAC = (text, id) => ({
   type: DESCRIPTION_SAVE,
-  text
+  text,
+  id
 });
-export const titleSaveAC = text => ({
+export const titleSaveAC = (text, id) => ({
   type: TITLE_SAVE,
-  text
+  text,
+  id
 });
-export const buttonsActiveOnAC = todoId => ({
+export const buttonsActiveOnAC = id => ({
   type: BUTTONS_ACTIVE_ON,
-  todoId
+  id
 });
-export const buttonCancelOffAC = pusto => ({
+export const buttonCancelOffAC = id => ({
   type: BUTTON_CANCEL_OFF,
-  pusto
+  id
 });
-export const buttonSaveOffAC = text => ({
+export const buttonSaveOffAC = id => ({
   type: BUTTON_SAVE_OFF,
-  text
+  id
 });
 let nextTodoId = 1
 export const addTodo = text => ({

@@ -10,16 +10,15 @@ const useStyles = makeStyles({
   }
 });
 
-export default function Cancel({ disable, cancelOff }) {
+export default function Cancel(props) {
   const classes = useStyles();
 
-  // function test() {
-  //   return console.log("test");
-  // }
-  //console.log(cancelOff);
+  function onClick() {
+    props.cancelOff(props.id);
+  }
 
   return (
-    <IconButton className={classes.root} disabled={disable} onClick={cancelOff}>
+    <IconButton className={classes.root} disabled={props.buttonCancelDisable} onClick={onClick}>
       <CancelIcon fontSize="small" />
     </IconButton>
   );

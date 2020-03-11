@@ -10,23 +10,23 @@ const useStyles = makeStyles({
   }
 });
 
-export default function TextTask(props) {
+export default function Description(props) {
   const classes = useStyles();
-  const [text, setText] = useState(props.data);
+  const [text, setText] = useState(props.description);
 
-  // useEffect(() => {
-  //   setText(props.description);
-  // }, [props.buttonCancelDidClick]);
+  useEffect(() => {
+    setText(props.description);
+  }, [props.buttonCancelDidClick]);
 
-  // useEffect(() => {
-  //   props.descriptionSave(text);
-  // }, [props.buttonSaveDidClick]);
+  useEffect(() => {
+    props.descriptionSave(text, props.id);
+  }, [props.buttonSaveDidClick]);
 
-  console.log(props)
+  console.log('Description', props)
 
   function onChange(event) {
     setText(event.target.value);
-    props.buttonsActiveOn();
+    props.buttonsActiveOn(props.id);
   }
   return (
     <InputBase

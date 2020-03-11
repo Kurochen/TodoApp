@@ -9,22 +9,22 @@ const useStyles = makeStyles({
   }
 });
 
-export default function TitleTask(props) {
+export default function Title(props) {
   const classes = useStyles();
   const [text, setText] = useState(props.title);
 
-  // useEffect(() => {
-  //   setText(props.title);
-  // }, [props.buttonCancelDidClick]);
+  useEffect(() => {
+    setText(props.title);
+  }, [props.buttonCancelDidClick]);
 
-  // useEffect(() => {
-  //   //console.log(text);
-  //   props.titleSave(text);
-  // }, [props.buttonSaveDidClick]);
+  useEffect(() => {
+
+    props.titleSave(text, props.id);
+  }, [props.buttonSaveDidClick]);
 
   function onChange(event) {
     setText(event.target.value);
-    props.buttonsActiveOn();
+    props.buttonsActiveOn(props.id);
   }
 
   return (

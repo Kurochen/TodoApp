@@ -10,10 +10,14 @@ const useStyles = makeStyles({
   }
 });
 
-export default function SaveButton({ saveOff, disable }) {
+export default function SaveButton(props) {
   const classes = useStyles();
+
+  function onClick() {
+    props.saveOff(props.id);
+  }
   return (
-    <IconButton className={classes.root} disabled={disable} onClick={saveOff}>
+    <IconButton className={classes.root} disabled={props.buttonSaveDisable} onClick={onClick}>
       <SaveIcon fontSize="small" />
     </IconButton>
   );

@@ -2,19 +2,20 @@ import Cancel from "./Cancel";
 import { connect } from "react-redux";
 import { buttonCancelOffAC } from "../../redux/todos";
 
-let mapStateToProps = state => {
-  return {
-    disable: state.todos.buttonCancelDisable
-  };
-};
+// let mapStateToProps = state => {
+//   return {
+//     disable: state.todos.buttonCancelDisable
+//   };
+// };
 
 let mapDispatchToProps = dispatch => {
   return {
-    cancelOff: pusto => dispatch(buttonCancelOffAC(pusto))
+    cancelOff: id => dispatch(buttonCancelOffAC(id))
   };
 };
 
 export default connect(
-  mapStateToProps,
+  null,
+  //mapStateToProps,
   mapDispatchToProps
 )(Cancel);
