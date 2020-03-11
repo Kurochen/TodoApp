@@ -10,27 +10,23 @@ const useStyles = makeStyles({
   }
 });
 
-export default function TextTask({
-  description,
-  buttonsActiveOn,
-  buttonCancelDidClick,
-  buttonSaveDidClick,
-  descriptionSave
-}) {
+export default function TextTask(props) {
   const classes = useStyles();
-  const [text, setText] = useState(description);
+  const [text, setText] = useState(props.data);
 
-  useEffect(() => {
-    setText(description);
-  }, [buttonCancelDidClick]);
+  // useEffect(() => {
+  //   setText(props.description);
+  // }, [props.buttonCancelDidClick]);
 
-  useEffect(() => {
-    descriptionSave(text);
-  }, [buttonSaveDidClick]);
+  // useEffect(() => {
+  //   props.descriptionSave(text);
+  // }, [props.buttonSaveDidClick]);
+
+  console.log(props)
 
   function onChange(event) {
     setText(event.target.value);
-    buttonsActiveOn();
+    props.buttonsActiveOn();
   }
   return (
     <InputBase

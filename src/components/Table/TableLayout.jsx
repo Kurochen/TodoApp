@@ -8,8 +8,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Container from '@material-ui/core/Container';
-import TitleContainer from '../Text/TitleContainer';
-import DescriptionContainer from '../Text/DescriptionContainer'
+import Title from '../Text/Title';
+import Description from '../Text/Description'
 import ButtonGroup from '../Buttons/ButtonGroup';
 import Box from '@material-ui/core/Box';
 
@@ -26,8 +26,12 @@ const useStyles = makeStyles({
 });
 
 
-const TableLayout = ({ todos }) => {
+const TableLayout = (props) => {
     const classes = useStyles();
+
+    console.log('TableLayout', props.state);
+    let arr = [];
+    arr = props.state;
 
     return (
         <Container maxWidth="md">
@@ -41,19 +45,22 @@ const TableLayout = ({ todos }) => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        <TableRow key={"todos.id"}>
-                            <TableCell component="th" scope="row">
-                                <TitleContainer />
-                            </TableCell>
-                            <TableCell align="right">
-                                <Box className={classes.description}>
-                                    <DescriptionContainer />
-                                </Box>
-                            </TableCell>
-                            <TableCell align="right">
-                                <ButtonGroup />
-                            </TableCell>
-                        </TableRow>
+                        {/* {Object.keys(props.state).map(row => ( */}
+                        {props.state.map(row => (
+                            <TableRow key={row.id}>
+                                <TableCell component="th" scope="row">
+                                    <Title data={row.title} />
+                                </TableCell>
+                                <TableCell align="right">
+                                    <Box className={classes.description}>
+                                        <Description data={row.description} />
+                                    </Box>
+                                </TableCell>
+                                <TableCell align="right">
+                                    <ButtonGroup data={row} />
+                                </TableCell>
+                            </TableRow>
+                        ))}
                     </TableBody>
                 </Table>
             </TableContainer >

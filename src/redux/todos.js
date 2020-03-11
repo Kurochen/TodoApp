@@ -16,7 +16,9 @@ const TITLE_SAVE = "TITLE_SAVE";
 //   buttonSaveDidClick: 1
 // };
 
-const todos = (state = initialState, action) => {
+//console.log('Data', data)
+
+const todos = (state = data, action) => {
   switch (action.type) {
     case "BUTTONS_ACTIVE_ON":
       return {

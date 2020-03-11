@@ -8,6 +8,7 @@ let reducers = combineReducers({
 });
 
 let store = createStore(reducers);
+console.log('reducer', store)
 
 window.store = store;
 
