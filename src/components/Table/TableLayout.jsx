@@ -9,8 +9,6 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Container from '@material-ui/core/Container';
 import TitleContainer from '../Text/TitleContainer';
-import Description from '../Text/Description'
-import ButtonGroup from '../Buttons/ButtonGroup';
 import Box from '@material-ui/core/Box';
 import DescriptionContainer from '../Text/DescriptionContainer';
 import ButtonGroupContainer from '../Buttons/ButtonGroupContainer';

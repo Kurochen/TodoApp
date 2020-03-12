@@ -1,42 +1,43 @@
 import React from "react";
 import { Provider } from "react-redux";
 import store from "../redux/combineReducers";
-//import Navbar from "./Navbar";
-//import Body from "./Main";
-//import Footer from "./Footer";
-import ButtonGroup from "./Buttons/ButtonGroup";
-import DescriptionContainer from "./Text/DescriptionContainer";
-import TitleContainer from "./Text/TitleContainer";
-//import ButtonDelete from "./Buttons/ButtonDelete";
-//import ButtonSave from "./Buttons/ButtonSave";
 import { makeStyles } from "@material-ui/core/styles";
 import TableLayoutContainer from "./Table/TableLayoutContainer";
+import ModalContainer from './Modal/ModalContainer'
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Header from "./Header/Header";
+import Footer from "./Footer/Footer";
 
-const useStyles = makeStyles({
-  root: {
-    display: "flex",
-    flexDirection: "column",
-    minHeight: "100vh",
-    backgroundColor: "#fafafa"
+
+const useStyles = makeStyles(theme => ({
+  app: {
+    display: 'flex',
+    flexDirection: 'column',
+    minHeight: '100%',
+    backgroundColor: '#eaebeb'
+  },
+  main: {
+    flexGrow: 1,
+    paddingTop: theme.spacing(3),
+    paddingBottom: theme.spacing(7),
   }
-});
+}));
 
 export default function App() {
   const classes = useStyles();
   return (
     <Provider store={store}>
-      <ButtonGroup />
-      <TitleContainer />
-      <DescriptionContainer />
-      <TableLayoutContainer />
-
-      <div className={classes.root}>
-        {/* <Navbar />
-      <Body />
-      <Footer /> */}
+      <CssBaseline />
+      <div className={classes.app}>
+        <Header />
+        <main className={classes.main}>
+          <TableLayoutContainer />
+          <ModalContainer />
+        </main>
+        <footer className={classes.footer}>
+          <Footer />
+        </footer>
       </div>
     </Provider>
   );
 }
-
-//test github

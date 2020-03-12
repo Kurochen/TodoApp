@@ -1,10 +1,10 @@
 import TableLayout from "./TableLayout";
 import { connect } from "react-redux";
-import {
-    buttonsActiveOnAC,
-    titleSaveAC,
-    descriptionSaveAC
-} from "../../redux/todos";
+// import {
+//     buttonsActiveOnAC,
+//     titleSaveAC,
+//     descriptionSaveAC
+// } from "../../redux/todos";
 
 let mapStateToProps = state => {
     return {

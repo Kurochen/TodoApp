@@ -1,8 +1,8 @@
 export const data = [
     {
         id: 0,
-        title: "Kurochen title",
-        description: "Kurochen description",
+        title: "Важная задача",
+        description: "Сделать как можно быстрее.",
         buttonSaveDisable: true,
         buttonCancelDisable: true,
         buttonCancelDidClick: 1,
@@ -10,8 +10,8 @@ export const data = [
     },
     {
         id: 1,
-        title: "Kurochen title 2",
-        description: "Kurochen description 2",
+        title: "Отдых",
+        description: "Прогулка на свежем воздухе.",
         buttonSaveDisable: true,
         buttonCancelDisable: true,
         buttonCancelDidClick: 1,

@@ -6,19 +6,7 @@ const BUTTON_SAVE_OFF = "BUTTON_SAVE_OFF";
 const BUTTON_CANCEL_OFF = "BUTTON_CANCEL_OFF";
 const DESCRIPTION_SAVE = "DESCRIPTION_SAVE";
 const TITLE_SAVE = "TITLE_SAVE";
-
-// let initialState = {
-//   title: "Kurochen title",
-//   description: "Kurochen description",
-//   buttonSaveDisable: true,
-//   buttonCancelDisable: true,
-//   buttonCancelDidClick: 1,
-//   buttonSaveDidClick: 1
-// };
-
-
-
-//console.log('Data', data)
+const DELETE_TODO = "DELETE_TODO";
 
 const todos = (state = data, action) => {
   switch (action.type) {
@@ -67,6 +55,24 @@ const todos = (state = data, action) => {
             title: action.text
           }
           : todo);
+
+    case "ADD_TODO":
+      return [
+        ...state,
+        {
+          id: action.id,
+          title: action.title,
+          description: action.description,
+          buttonSaveDisable: true,
+          buttonCancelDisable: true,
+          buttonCancelDidClick: 1,
+          buttonSaveDidClick: 1
+        }
+      ]
+
+    case "DELETE_TODO":
+      return state.filter(todo => todo.id !== action.id)
+
     case "TOGGLE_TODO":
       return state.map(todo =>
         todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
@@ -98,11 +104,16 @@ export const buttonSaveOffAC = id => ({
   type: BUTTON_SAVE_OFF,
   id
 });
-let nextTodoId = 1
-export const addTodo = text => ({
+export const deleteTodoAC = id => ({
+  type: DELETE_TODO,
+  id
+})
+let nextTodoId = 2
+export const addTodoAC = (title, description) => ({
   type: ADD_TODO,
   id: nextTodoId++,
-  text
+  title,
+  description
 })
 
 export default todos;

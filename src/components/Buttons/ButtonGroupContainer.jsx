@@ -10,7 +10,7 @@ export default function ButtonGroupContainer(props) {
     <>
       <SaveContainer buttonSaveDisable={props.buttonSaveDisable} id={props.id} />
       <CancelContainer buttonCancelDisable={props.buttonCancelDisable} id={props.id} />
-      <DeleteContainer />
+      <DeleteContainer id={props.id} />
     </>
   );
 }

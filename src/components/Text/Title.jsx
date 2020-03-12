@@ -18,7 +18,6 @@ export default function Title(props) {
   }, [props.buttonCancelDidClick]);
 
   useEffect(() => {
-
     props.titleSave(text, props.id);
   }, [props.buttonSaveDidClick]);
 

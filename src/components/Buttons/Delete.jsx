@@ -10,10 +10,15 @@ const useStyles = makeStyles({
   }
 });
 
-export default function Delete({ onClick }) {
+export default function Delete(props) {
   const classes = useStyles();
+
+  function onClick() {
+    props.deleteTodo(props.id);
+  }
+
   return (
-    <IconButton className={classes.root}>
+    <IconButton className={classes.root} onClick={onClick}>
       <DeleteIcon fontSize="small" />
     </IconButton>
   );
