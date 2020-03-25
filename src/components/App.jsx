@@ -2,7 +2,7 @@ import React from "react";
 import { Provider } from "react-redux";
 import store from "../redux/combineReducers";
 import { makeStyles } from "@material-ui/core/styles";
-import TableLayoutContainer from "./Table/TableLayoutContainer";
+import TableLayout from "./Table/TableLayout";
 import ModalContainer from './Modal/ModalContainer'
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Header from "./Header/Header";
@@ -31,7 +31,7 @@ export default function App() {
       <div className={classes.app}>
         <Header />
         <main className={classes.main}>
-          <TableLayoutContainer />
+          <TableLayout />
           <ModalContainer />
         </main>
         <footer className={classes.footer}>

@@ -4,7 +4,7 @@ import InputBase from "@material-ui/core/InputBase";
 
 export default function Description(props) {
   const [text, setText] = useState(props.description);
-
+  console.log("description", props)
   useEffect(() => {
     setText(props.description);
   }, [props.buttonCancelDidClick]);
