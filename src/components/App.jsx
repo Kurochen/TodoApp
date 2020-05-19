@@ -25,6 +25,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function App() {
   const classes = useStyles();
+
   return (
     <Provider store={store}>
       <CssBaseline />
